@@ -33,15 +33,15 @@ jobs:
         npm run dev &
         npx wait-on http://localhost:5173 --timeout 60000
 
-    - name: Run Backlog Tests
-      run: npm run test:backlog
+    - name: Run E2E Tests
+      run: npm run test:e2e
 
     - name: Upload Excel Report
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: backlog-test-report
-        path: selenium-tests/backlog_report.xlsx
+        name: E2E-test-report
+        path: selenium-tests/reports/E2E_Test_Report.xlsx
 
     - name: Upload Screenshots on Failure
       if: failure()
