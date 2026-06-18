@@ -28,15 +28,15 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
 
-    - name: Run Smart Budget Tests
-      run: npm run test:smartbudget
+    - name: Run Backlog Tests
+      run: npm run test:backlog
 
     - name: Upload Excel Report
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: smart-budget-test-report
-        path: selenium-tests/smart_budget_report.xlsx
+        name: backlog-test-report
+        path: selenium-tests/backlog_report.xlsx
 
     - name: Upload Screenshots on Failure
       if: failure()
