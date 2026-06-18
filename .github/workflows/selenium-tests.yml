@@ -1,0 +1,46 @@
+name: Selenium E2E Tests
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Chrome and ChromeDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
+    - name: Run Smart Budget Tests
+      run: npm run test:smartbudget
+
+    - name: Upload Excel Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: smart-budget-test-report
+        path: selenium-tests/smart_budget_report.xlsx
+
+    - name: Upload Screenshots on Failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: error-screenshots
+        path: selenium-tests/screenshots/

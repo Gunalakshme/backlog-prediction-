@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:selenium": "node selenium-tests/run_tests.js",
+    "test:smartbudget": "node --experimental-modules node_modules/mocha/bin/_mocha selenium-tests/smart_budget_tests.js --timeout 80000 --exit"
   },
   "dependencies": {
     "chromedriver": "^149.0.2",

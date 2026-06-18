@@ -208,6 +208,7 @@ const USERS = {
   "bob_cse": { id: "bob_cse", name: "Bob Johnson", role: "student", dept: "CSE", roll: "CSE-2026-02", password: "password123" },
   "charlie_ece": { id: "charlie_ece", name: "Charlie Brown", role: "student", dept: "ECE", roll: "ECE-2026-01", password: "password123" },
   "david_me": { id: "david_me", name: "David Miller", role: "student", dept: "ME", roll: "ME-2026-01", password: "password123" },
+  "gunalakshme": { id: "gunalakshme", name: "Gunalakshme P", role: "student", dept: "CSE", roll: "CSE-2026-99", password: "guna@2323" },
 };
 
 const defaultReg = { internalWeight: 40, passMark: 50, minAttendance: 75, minExternal: 40 };
@@ -342,6 +343,12 @@ const defaultStudentDb = {
     progress: {
       "6": { attendance: 90, internalScored: 35, assignmentPct: 95, loggedHours: 6, loggedMinutes: 0, completedTasks: [61, 62] },
       "7": { attendance: 66, internalScored: 16, assignmentPct: 50, loggedHours: 1, loggedMinutes: 15, completedTasks: [] }
+    }
+  },
+  "gunalakshme": {
+    profile: { prevCGPA: 8.5, existingArrears: 0 },
+    progress: {
+      "1": { attendance: 85, internalScored: 32, assignmentPct: 92, loggedHours: 5, loggedMinutes: 0, completedTasks: [11, 12] }
     }
   }
 };
