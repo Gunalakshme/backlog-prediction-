@@ -28,7 +28,7 @@ export class ExcelReporter {
     sheet.columns = [
       { header: 'Test Case ID', key: 'id', width: 15 },
       { header: 'Module Name', key: 'moduleName', width: 20 },
-      { header: 'Test Case Description', key: 'description', width: 50 },
+      { header: 'Test Case Name', key: 'description', width: 50 },
       { header: 'Expected Result', key: 'expected', width: 40 },
       { header: 'Actual Result', key: 'actual', width: 40 },
       { header: 'Status', key: 'status', width: 15 },
@@ -57,12 +57,12 @@ export class ExcelReporter {
       }
     });
 
-    const reportPath = path.join(reportsDir, 'E2E_Test_Report.xlsx');
+    const reportPath = path.join(reportsDir, 'TestReport.xlsx');
     await workbook.xlsx.writeFile(reportPath);
     console.log(`\nExcel report generated at: ${reportPath}`);
 
     // Mirror to brain
-    const brainPath = 'C:\\Users\\Guna\\.gemini\\antigravity-ide\\brain\\ffe932cb-926d-4dcb-9701-5b6e9404bfec\\E2E_Test_Report.xlsx';
+    const brainPath = 'C:\\Users\\Guna\\.gemini\\antigravity-ide\\brain\\ffe932cb-926d-4dcb-9701-5b6e9404bfec\\TestReport.xlsx';
     try {
       await workbook.xlsx.writeFile(brainPath);
     } catch (e) {

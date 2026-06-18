@@ -41,8 +41,8 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: E2E-test-report
-        path: selenium-tests/reports/E2E_Test_Report.xlsx
+        name: TestReport
+        path: selenium-tests/reports/TestReport.xlsx
 
     - name: Upload Screenshots on Failure
       if: failure()
