@@ -28,6 +28,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
 
+    - name: Start Application Server
+      run: |
+        npm run dev &
+        npx wait-on http://localhost:5173 --timeout 60000
+
     - name: Run Backlog Tests
       run: npm run test:backlog
 
